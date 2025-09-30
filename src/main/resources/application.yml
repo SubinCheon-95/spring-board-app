@@ -16,14 +16,14 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     password: 1234
-    url: jdbc:oracle:thin:@//localhost:1521/XE
+    url: jdbc:oracle:thin:@//15.165.40.29:1522/XEPDB1
     username: sub6550
   devtools:
     livereload:
       enabled: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
@@ -31,8 +31,29 @@ spring:
         format_sql: true
         show_sql: true
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sub6550@gmail.com
+    password: zkortfooepwahffe
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            required: true
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+
   security:
     user:
       name: user
       password: 1234
       roles: ADMIN
+
+  servlet:
+    multipart:
+      location: upload
+      max-file-size: 10MB
